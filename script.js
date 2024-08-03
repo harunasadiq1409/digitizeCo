@@ -88,18 +88,18 @@ form.addEventListener("submit", function (e) {
 
 //
 
-const nav_btn_open = document.querySelector(".open");
-const nav_btn_close = document.querySelector(".close");
-const nav_container = document.querySelector(".nav_links_container");
+// const nav_btn_open = document.querySelector(".open");
+// const nav_btn_close = document.querySelector(".close");
+// const nav_container = document.querySelector(".nav_links_container");
 
-nav_btn_close.addEventListener("click", function () {
-	nav_btn_close.classList.remove("active");
-	nav_btn_open.classList.add("active");
-	nav_container.classList.remove("active");
-});
+// nav_btn_close.addEventListener("click", function () {
+// 	nav_btn_close.classList.remove("active");
+// 	nav_btn_open.classList.add("active");
+// 	nav_container.classList.remove("active");
+// });
 
-nav_btn_open.addEventListener("click", function () {
-	nav_btn_close.classList.add("active");
-	nav_btn_open.classList.remove("active");
-	nav_container.classList.add("active");
-});
+// nav_btn_open.addEventListener("click", function () {
+// 	nav_btn_close.classList.add("active");
+// 	nav_btn_open.classList.remove("active");
+// 	nav_container.classList.add("active");
+// });
