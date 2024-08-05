@@ -27,6 +27,16 @@ window.addEventListener("scroll", function () {
 
 // service item accordion/////////////////////////////////////////////////////////////////////////////
 
+function accordionHeight() {
+	serviceItems.forEach((item) => {
+		let v = item.lastElementChild;
+		if (item.classList.contains("active")) {
+			v.style.height = `${v.scrollHeight}px`;
+		} else {
+			v.style.height = "0";
+		}
+	});
+}
 let serviceItems = document.querySelectorAll(".services__items .item");
 
 serviceItems.forEach((item) => {
@@ -39,8 +49,10 @@ serviceItems.forEach((item) => {
 				item.classList.add("active");
 			});
 		}
+		accordionHeight();
 	});
 });
+accordionHeight();
 
 // handle cta button click////////////////////////////////////////////////////////////////////////////
 
@@ -86,20 +98,30 @@ form.addEventListener("submit", function (e) {
 	}
 });
 
-//
+// handle handle toggling nav button////////////////////////////////////////////////////////////
 
-// const nav_btn_open = document.querySelector(".open");
-// const nav_btn_close = document.querySelector(".close");
-// const nav_container = document.querySelector(".nav_links_container");
+let menuOpen = document.querySelector(".open_btn");
+let menuClose = document.querySelector(".close_btn");
+let menuContent = document.querySelector(".nav_links_container");
+let nav_links = document.querySelectorAll(".nav_item");
 
-// nav_btn_close.addEventListener("click", function () {
-// 	nav_btn_close.classList.remove("active");
-// 	nav_btn_open.classList.add("active");
-// 	nav_container.classList.remove("active");
-// });
+menuClose.addEventListener("click", () => {
+	menuOpen.classList.add("active");
+	menuClose.classList.remove("active");
+	menuContent.classList.remove("active");
+});
+menuOpen.addEventListener("click", () => {
+	menuOpen.classList.remove("active");
+	menuClose.classList.add("active");
+	menuContent.classList.add("active");
+});
 
-// nav_btn_open.addEventListener("click", function () {
-// 	nav_btn_close.classList.add("active");
-// 	nav_btn_open.classList.remove("active");
-// 	nav_container.classList.add("active");
-// });
+nav_links.forEach((link) => {
+	link.addEventListener("click", function () {
+		if (menuContent.classList.contains("active")) {
+			menuOpen.classList.add("active");
+			menuClose.classList.remove("active");
+			menuContent.classList.remove("active");
+		}
+	});
+});

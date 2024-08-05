@@ -105,14 +105,14 @@
 		<header > 
 			
 			<nav  class="nav">
-				<div class="logo">
+					<div class="logo">
 					<a href="#">
 						<img
 						src="pubilc/logo_w.png"
 												alt="digitizeCo logo" />
 
 					</a>
-				</div>
+					</div>
 				<div class="nav_links_container ">
 					<ul class="nav_links">
 
@@ -140,11 +140,10 @@
 					</li>
 					</ul>
 				</div>
-
-				<div class="open_close_btn">
-					<button class="nav_btn active open"><i class="ri-menu-line"></i></button>
-					<button class="nav_btn close"><i class="ri-close-large-line"></i></button>
-				</div>	
+				<div class="menu_btns">
+					<button class="open_btn menu_btn active"><i class="ri-menu-line"></i></button>
+					<button class="close_btn menu_btn"><i class="ri-close-large-line"></i></button>
+				</div>
 			</nav>
 		</header >
 		<section class="hero section" id="home">
@@ -154,9 +153,12 @@
 					<p class="body_text_large">Innovative Solutions for Business Growth</p>
 				</div>
 				<div class="hero__contents__image">
-					<img
-						src="pubilc/hero.png"
+					<picture>
+						<source media="(max-width: 560px)" srcset="/pubilc/hero2.png">
+						<img
+						src="/pubilc/hero.png"
 						alt="hero image" />
+					</picture>
 					<button class="btn cta_btn">
 						Start Your Journey
 						<span class="arrow"><svg width="32" height="21" viewBox="0 0 32 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -197,14 +199,19 @@
 				</div>
 				<div class="about__contents__image">
 					<div class="image">
-						<img
+						<picture>
+							<source media="(max-width:560px)" srcset="/pubilc/about2.png">
+							<img
 							src="pubilc/about_us_1.png"
 							alt=" image showing our Collaborative approach  " />
+						</picture>
 					</div>
 					<div class="image">
-						<img
+					
+							<img
 							src="pubilc/about_us_2.png"
 							alt="image showing our team work" />
+					
 					</div>
 				</div>
 			</div>
