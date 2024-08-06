@@ -27,16 +27,6 @@ window.addEventListener("scroll", function () {
 
 // service item accordion/////////////////////////////////////////////////////////////////////////////
 
-function accordionHeight() {
-	serviceItems.forEach((item) => {
-		let v = item.lastElementChild;
-		if (item.classList.contains("active")) {
-			v.style.height = `${v.scrollHeight}px`;
-		} else {
-			v.style.height = "0";
-		}
-	});
-}
 let serviceItems = document.querySelectorAll(".services__items .item");
 
 serviceItems.forEach((item) => {
@@ -49,10 +39,8 @@ serviceItems.forEach((item) => {
 				item.classList.add("active");
 			});
 		}
-		accordionHeight();
 	});
 });
-accordionHeight();
 
 // handle cta button click////////////////////////////////////////////////////////////////////////////
 
