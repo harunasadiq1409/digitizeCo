@@ -47,10 +47,9 @@
 		<script src="https://unpkg.com/scrollreveal"></script>
 	</head>
 	<body>
-		<div class="wrapper">
-
-		<!-- fixed pages -->
-		<div class="email_page " >
+		
+		<!-- email pages -->
+		<div class="email_page " inert =''>
 			<div class="email_page_left">
 				
 				<div class="content">
@@ -63,19 +62,37 @@
 				</div>
 			</div>
 				<div class="email_page_right">
-					<span class="close ">
+			
+					<button class="acc_btn close" aria-label="cancel">
+					<span>
 						<svg width="32" height="32" viewBox="0 0 47 46" fill="none" xmlns="http://www.w3.org/2000/svg">
 <line y1="-0.5" x2="63.6396" y2="-0.5" transform="matrix(0.707107 0.707107 0.707107 -0.707107 1 0)" stroke="white"/>
 <line x1="46.3536" y1="0.353553" x2="1.35355" y2="45.3536" stroke="white"/>
 </svg>
 
 					</span>
+					</button>
 					<div class="form">
 						<form action="#">
-							<input type="text" class="input name" placeholder="Your Name" required>
-							<input type="text" class="input Email" placeholder="Your Email" required>
-							<input type="text" class="input Number" placeholder="Phone Number" required>
-							<textarea rows="5" class="input" placeholder="Message" ></textarea>
+							<div class="input_item">
+
+								<label for="names">Full name
+								</label>
+								<input type="text" id="names" class="input name" placeholder="e.g Haruna Sadiq" required>
+							</div>
+
+							<div class="input_item">
+								<label for="email">Email</label>
+								<input type="text" id="email" class="input Email" placeholder="e.g harunasadiq1409@gmail.com" required>
+							</div>
+							<div class="input_item">
+								<label for="p_number">Phone Number</label>
+								<input type="text" id="p_number" class="input Number" placeholder="e.g 08148055..." required>
+							</div>
+							<div class="input_item">
+								<label for="message">Message</label>
+								<textarea rows="5" id="message" class="input" placeholder="Message" ></textarea>
+							</div>
 							<button class="btn btn_bottom submit_btn" type="submit">
 								Submit <span class="arrow">
 									<svg width="32" height="21" viewBox="0 0 32 21" fill="none" stroke="#fff" xmlns="http://www.w3.org/2000/svg">
@@ -88,9 +105,8 @@
 					</div>
 				</div>
 			</div>
-
 		<!-- 404 message -->
-		 <div class="page_not_found">
+		 <div class="page_not_found"  inert =''>
 		
 			<h2 class="h2m">thank you 🙏 for checking this website ❤</h2>
 			<p class="body_text_large">this is a dummy practice website , so the page you seek is not currently available,maybe check-back next time✌ </p>
@@ -101,51 +117,59 @@
 </svg></span>
 			</span></button>
 		 </div>
-		<!-- hero---------------------------------------------------------------------- -->
-		<header > 
+		<!-- header------------------------------------------------------------------- -->
+	<header > 
 			
 			<nav  class="nav">
-					<div class="logo">
+				<span class="logo" >
 					<a href="#">
 						<img
 						src="public/logo_w.png"
 												alt="digitizeCo logo" />
-
+												
 					</a>
-					</div>
-				<div class="nav_links_container ">
-					<ul class="nav_links">
+				</span>
 
-					<li>
-						<a
-							href="#home"
-							class="nav_item active"
-							>Home</a
-						>
-					</li>
-					<li>
-						<a href="#about" class="nav_item">About Us</a>
-					</li>
-					<li>
-						<a href="#services" class="nav_item"> Services </a>
-					</li>
-					<li>
-						<a href="#portfolio" class="nav_item">Portfolios</a>
-					</li>
-					<li>
-						<a href="#testimonial" class="nav_item">Testimonials</a>
-					</li>
-					<li>
-						<a href="#contact" class="nav_item">Contacts</a>
-					</li>
-					</ul>
+				<span id="menu_label" hidden>Navigation</span>
+				<div class="menu_wrapper" role="dialog" aria-labelledby="menu-label">
+
+					<div class="menu_btns">
+						<button class="open_btn menu_btn active"><i class="ri-menu-line"></i></button>
+						<button class="close_btn menu_btn"><i class="ri-close-large-line"></i></button>
+					</div>
+					<div class="nav_links_container">
+						<ul class="nav_links">
+
+						<li>
+							<a
+								href="#home"
+								class="nav_item active"
+								>Home</a
+							>
+						</li>
+						<li>
+							<a href="#about" class="nav_item">About Us</a>
+						</li>
+						<li>
+							<a href="#services" class="nav_item"> Services </a>
+						</li>
+						<li>
+							<a href="#portfolio" class="nav_item">Portfolios</a>
+						</li>
+						<li>
+							<a href="#testimonial" class="nav_item">Testimonials</a>
+						</li>
+						<li>
+							<a href="#contact" class="nav_item">Contacts</a>
+						</li>
+						</ul>
+					</div>
 				</div>
-				<div class="menu_btns">
-					<button class="open_btn menu_btn active"><i class="ri-menu-line"></i></button>
-					<button class="close_btn menu_btn"><i class="ri-close-large-line"></i></button>
-				</div>
+			 	
 			</nav>
-		</header >
+	</header >
+	<main class="wrapper" id="main">
+		<!-- hero---------------------------------------------------------------------- -->
 		<section class="hero section" id="home">
 			<div class="hero__contents">
 				<div class="hero__contents__text">
@@ -153,31 +177,23 @@
 					<p class="body_text_large">Innovative Solutions for Business Growth</p>
 				</div>
 				<div class="hero__contents__image">
+					<button class="btn cta_btn">
+						Start Your Journey
+						<span class="arrow"><svg width="32" height="21" viewBox="0 0 32 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M0.650758 10.5001L30.3493 10.5001M30.3493 10.5001L20.9643 1.11513M30.3493 10.5001L21.0525 19.7969" stroke-width="2"/>
+						</svg></span>
+					</button>
 					<picture>
 						<source media="(max-width: 560px)" srcset="public/hero2.png">
 						<img
 						src="public/hero.png"
-						alt="hero image" />
+						alt="the world in digital state" />
 					</picture>
-					<button class="btn cta_btn">
-						Start Your Journey
-						<span class="arrow"><svg width="32" height="21" viewBox="0 0 32 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.650758 10.5001L30.3493 10.5001M30.3493 10.5001L20.9643 1.11513M30.3493 10.5001L21.0525 19.7969" stroke-width="2"/>
-</svg></span>
-					</button>
 				</div>
 			</div>
-			<div class="over_layer"></div>
-
-			<a href="#">
-
-				<div class="back_to_top">
-					
-					<span class="btt"><svg width="32" height="21" viewBox="0 0 32 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path d="M0.650758 10.5001L30.3493 10.5001M30.3493 10.5001L20.9643 1.11513M30.3493 10.5001L21.0525 19.7969" stroke-width="2"/></svg></span>
-					</div>
-				</a>
-				</section>
+			<div class="over_layer" hidden></div>
+   
+		</section>
 		<!-- about us------------------------------------------------------------------------ -->
 		<section class="about section" id="about">
 			<span class="section_title"> <h6>ABOUT US</h6> </span>
@@ -203,14 +219,14 @@
 							<source media="(max-width:560px)" srcset="public/about2.png">
 							<img
 							src="public/about_us_1.png"
-							alt=" image showing our Collaborative approach  " />
+							alt="digitzeCo team Collaborating on a project as teams " />
 						</picture>
 					</div>
 					<div class="image">
 					
 							<img
 							src="public/about_us_2.png"
-							alt="image showing our team work" />
+							alt="digitzeCo showing diversity experts members joining hands together as teams" />
 					
 					</div>
 				</div>
@@ -222,7 +238,7 @@
 						<div class="image">
 							<img
 								src="public/core 1.png"
-								alt="Collaboration" />
+								alt="divere teams in office" />
 						</div>
 						<div class="card__text">
 							<h5>Collaboration</h5>
@@ -233,7 +249,7 @@
 						<div class="image">
 							<img
 								src="public/core 2.png"
-								alt="innovation" />
+								alt="an expert sharing ideas on white board" />
 						</div>
 						<div class="card__text">
 							<h5>Innovation</h5>
@@ -244,7 +260,7 @@
 						<div class="image">
 							<img
 								src="public/core 3.png"
-								alt="Integrity " />
+								alt="three happy expert with integrity" />
 						</div>
 						<div class="card__text">
 							<h5>Integrity</h5>
@@ -261,10 +277,10 @@
 				<div class="img">
 					<img
 					src="public/brand.png"
-					alt="list of brands" />	
+					alt="including supreme, yukon, dove, channel, nike, puma and more" />	
 					<img
 					src="public/brand.png"
-					alt="list of brands" />
+					alt="list of brands" hidden/>
 				</div>
 			</div>
 			
@@ -280,15 +296,17 @@
 				<div class="services__text">
 					<h2>Our Digital Expertise</h2>
 				<p class="body_text_large">At DigitizeCo, we offer a comprehensive suite of services to meet your digital needs and drive your business forward. Explore our key offerings below.</p>
-			</div>
-			<div class="services__items">
-				<div class="item 1 active ">
+				</div>
+			<ul class="services__items">
+				<li class="item 1 active ">
 					<div class="item__head">
 
-						<h4>Website Design and Development</h1>
+						<h4 id="s1">Website Design and Development</h4>
+					<button class="acc_btn" aria-label="toggle button"  >
 							<span class="arrow"><svg width="32" height="21" viewBox="0 0 32 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M0.650758 10.5001L30.3493 10.5001M30.3493 10.5001L20.9643 1.11513M30.3493 10.5001L21.0525 19.7969" stroke-width="2"/>
-							</svg></span>		
+							</svg></span>	
+					</button>	
 						</div>
 						<div class="item__content">
 							<div class="item_content_wrapper">
@@ -297,7 +315,7 @@
 									
 									<h5>Creating Engaging Digital Experiences</h5>
 									<p class="body_text_large">We design and develop beautiful, user-friendly websites that showcase your brand and captivate your audience. Our development team ensures your site is responsive, secure, and optimized for performance.</p>
-									<button class="btn_outline btn_next_page ">learn More <span class="arrow"><svg width="32" height="21" viewBox="0 0 32 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<button class="btn_outline btn_next_page " aria-labelledby="s1">learn More <span class="arrow"><svg width="32" height="21" viewBox="0 0 32 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<path d="M0.650758 10.5001L30.3493 10.5001M30.3493 10.5001L20.9643 1.11513M30.3493 10.5001L21.0525 19.7969" stroke-width="2"/>
 									</svg></span></button>
 								</div>
@@ -306,14 +324,16 @@
 								</div>
 							</div>
 						</div>
-				</div>
-				<div class="item 2 ">
+				</li>
+				<li class="item 2 ">
 					<div class="item__head">
 						
-						<h4>Digital Marketing and SEO</h1>
+						<h4 id="s2">Digital Marketing and SEO</h4>
+	<button class="acc_btn" aria-label="toggle button" >
 							<span class="arrow"><svg width="32" height="21" viewBox="0 0 32 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.650758 10.5001L30.3493 10.5001M30.3493 10.5001L20.9643 1.11513M30.3493 10.5001L21.0525 19.7969" stroke-width="2"/>
-</svg></span>
+							<path d="M0.650758 10.5001L30.3493 10.5001M30.3493 10.5001L20.9643 1.11513M30.3493 10.5001L21.0525 19.7969" stroke-width="2"/>
+							</svg></span>	
+					</button>
 						</div>
 					<div class="item__content">
 						<div class="item_content_wrapper">
@@ -322,7 +342,7 @@
 								
 								<h5>Amplify your Online Present</h5>
 							<p class="body_text_large">Our digital marketing strategies, including SEO, help you reach and engage your target audience effectively. We focus on increasing your visibility and driving measurable results.</p>
-							<button class="btn_outline btn_next_page">learn More <span class="arrow"><svg width="32" height="21" viewBox="0 0 32 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<button class="btn_outline btn_next_page" aria-labelledby="s2">learn More <span class="arrow"><svg width="32" height="21" viewBox="0 0 32 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M0.650758 10.5001L30.3493 10.5001M30.3493 10.5001L20.9643 1.11513M30.3493 10.5001L21.0525 19.7969" stroke-width="2"/>
 </svg></span></button>
 </div>
@@ -331,14 +351,16 @@
 </div>
 </div>
 </div>
-</div>
-<div class="item 3 ">
+				</li>
+				 <li class="item 3 ">
 	<div class="item__head">
 		
-						<h4>Content Creation and Social Media Management</h1>
+						<h4 id="s3">Content Creation and Social Media Management</h4>
+							<button class="acc_btn" aria-label="toggle button" >
 							<span class="arrow"><svg width="32" height="21" viewBox="0 0 32 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.650758 10.5001L30.3493 10.5001M30.3493 10.5001L20.9643 1.11513M30.3493 10.5001L21.0525 19.7969" stroke-width="2"/>
-</svg></span>
+							<path d="M0.650758 10.5001L30.3493 10.5001M30.3493 10.5001L20.9643 1.11513M30.3493 10.5001L21.0525 19.7969" stroke-width="2"/>
+							</svg></span>	
+					</button>
 						</div>
 					<div class="item__content">
 						<div class="item_content_wrapper">
@@ -348,7 +370,7 @@
 
 							<h5>Tell Your Story with Impactful Content</h5>
 							<p class="body_text_large">We create compelling content that connects with your audience and enhances your brand narrative. Our social media management services build and nurture your online community.</p>
-							<button class="btn_outline btn_next_page">learn More <span class="arrow"><svg width="32" height="21" viewBox="0 0 32 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<button class="btn_outline btn_next_page" aria-labelledby="s3">learn More <span class="arrow"><svg width="32" height="21" viewBox="0 0 32 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M0.650758 10.5001L30.3493 10.5001M30.3493 10.5001L20.9643 1.11513M30.3493 10.5001L21.0525 19.7969" stroke-width="2"/>
 </svg></span></button>
 						</div>
@@ -358,14 +380,16 @@
 						</div>
 
 						</div>
-				</div>
-				<div class="item 4 ">
+				</li>
+				<li class="item 4 ">
 					<div class="item__head">
 
-						<h4>Branding and Strategy</h1>
+						<h4 id="s4">Branding and Strategy</h4>
+							<button class="acc_btn" aria-label="toggle button" >
 							<span class="arrow"><svg width="32" height="21" viewBox="0 0 32 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.650758 10.5001L30.3493 10.5001M30.3493 10.5001L20.9643 1.11513M30.3493 10.5001L21.0525 19.7969" stroke-width="2"/>
-</svg></span>
+							<path d="M0.650758 10.5001L30.3493 10.5001M30.3493 10.5001L20.9643 1.11513M30.3493 10.5001L21.0525 19.7969" stroke-width="2"/>
+							</svg></span>	
+					</button>
 						</div>
 					<div class="item__content">
 						<div class="item_content_wrapper">
@@ -374,7 +398,7 @@
 								
 							<h5>Build a Strong, Memorable Brand</h5>
 							<p class="body_text_large">We help you develop a distinctive brand identity and strategic plan that resonates with your audience and supports your business objectives.</p>
-							<button class="btn_outline btn_next_page">learn More <span class="arrow"><svg width="32" height="21" viewBox="0 0 32 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<button class="btn_outline btn_next_page" aria-labelledby="s4">learn More <span class="arrow"><svg width="32" height="21" viewBox="0 0 32 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M0.650758 10.5001L30.3493 10.5001M30.3493 10.5001L20.9643 1.11513M30.3493 10.5001L21.0525 19.7969" stroke-width="2"/>
 </svg></span></button>
 						</div>
@@ -383,36 +407,38 @@
 						</div>
 						</div>
 					</div>
-				</div>
-				<div class="item 5 ">
+				</li>
+				<li class="item 5 ">
 					<div class="item__head">
 
-						<h4>UX/UI Design</h1>
+						<h4 id="s5">UX/UI Design</h1>
+						<button class="acc_btn s_btn" aria-label="toggle button"  >
 							<span class="arrow"><svg width="32" height="21" viewBox="0 0 32 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.650758 10.5001L30.3493 10.5001M30.3493 10.5001L20.9643 1.11513M30.3493 10.5001L21.0525 19.7969" stroke-width="2"/>
-</svg></span>
+							<path d="M0.650758 10.5001L30.3493 10.5001M30.3493 10.5001L20.9643 1.11513M30.3493 10.5001L21.0525 19.7969" stroke-width="2"/>
+							</svg></span>	
+					</button>
 						</div>
 					<div class="item__content">
 						<div class="item_content_wrapper">
 
 							<div class="item__content__text">
 								
-							<h5>Designing Seamless User Journeys</h5>
+							<h5>Designing Seamless User Journeys</h4>
 							<p class="body_text_large">Our UX/UI design services focus on creating intuitive, user-centered interfaces that provide exceptional experiences and drive user satisfaction.
 							</p>
-							<button class="btn_outline btn_next_page">learn More <span class="arrow"><svg width="32" height="21" viewBox="0 0 32 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.650758 10.5001L30.3493 10.5001M30.3493 10.5001L20.9643 1.11513M30.3493 10.5001L21.0525 19.7969" stroke-width="2"/>
-</svg></span></button>
+							<button class="btn_outline btn_next_page" aria-labelledby="s5">learn More <span class="arrow"><svg width="32" height="21" viewBox="0 0 32 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M0.650758 10.5001L30.3493 10.5001M30.3493 10.5001L20.9643 1.11513M30.3493 10.5001L21.0525 19.7969" stroke-width="2"/>
+							</svg></span></button>
 						</div>
 						<div class="image">
 							<img src="public/uxui.png" alt="ux and ui design">
 						</div>
 					</div>
 				</div>
-				</div>
+			</li>
 				
+			</ul>
 			</div>
-				</div>
 
 		</section>
 		<!-- portfolio----------------------------------------------------------------------------------- -->
@@ -442,13 +468,17 @@
 				<div class="portfolio__contents__cards">
 					<div class="card 1">
 						<div class="card__image">
-							<img src="public/e-commerce.png" alt="e-commerce website design">
+							<img src="public/e-commerce.png" alt="e-commerce website design" >
 						</div>
 						<div class="card__text">
-							<h4>E-Commerce OverHaul</h4>	
-							<span class="arrow btn_next_page"><svg width="32" height="21" viewBox="0 0 32 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M0.650758 10.5001L30.3493 10.5001M30.3493 10.5001L20.9643 1.11513M30.3493 10.5001L21.0525 19.7969" stroke-width="2"/>
+							<h4>E-Commerce OverHaul</h4>
+							
+							
+							<button class="acc_btn btn_next_page" aria-label="open project"  >
+								<span class="arrow btn_next_page"><svg width="32" height="21" viewBox="0 0 32 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M0.650758 10.5001L30.3493 10.5001M30.3493 10.5001L20.9643 1.11513M30.3493 10.5001L21.0525 19.7969" stroke-width="2"/>
 							</svg></span>
+						</button>	
 						</div>
 					</div>
 						<div class="card 2">
@@ -457,9 +487,11 @@
 						</div>
 						<div class="card__text">
 							<h4>SEO and Marketing Campaign</h4>	
-							<span class="arrow btn_next_page"><svg width="32" height="21" viewBox="0 0 32 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.650758 10.5001L30.3493 10.5001M30.3493 10.5001L20.9643 1.11513M30.3493 10.5001L21.0525 19.7969" stroke-width="2"/>
-</svg></span>
+						<button class="acc_btn btn_next_page" aria-label="open project"  >
+								<span class="arrow btn_next_page"><svg width="32" height="21" viewBox="0 0 32 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M0.650758 10.5001L30.3493 10.5001M30.3493 10.5001L20.9643 1.11513M30.3493 10.5001L21.0525 19.7969" stroke-width="2"/>
+							</svg></span>
+						</button>	
 						</div>
 					</div>
 						<div class="card 3">
@@ -468,9 +500,11 @@
 						</div>
 						<div class="card__text">
 							<h4>Social Media Strategy</h4>	
-							<span class="arrow btn_next_page"><svg width="32" height="21" viewBox="0 0 32 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.650758 10.5001L30.3493 10.5001M30.3493 10.5001L20.9643 1.11513M30.3493 10.5001L21.0525 19.7969" stroke-width="2"/>
-</svg></span>
+							<button class="acc_btn btn_next_page" aria-label="open project"  >
+								<span class="arrow btn_next_page"><svg width="32" height="21" viewBox="0 0 32 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M0.650758 10.5001L30.3493 10.5001M30.3493 10.5001L20.9643 1.11513M30.3493 10.5001L21.0525 19.7969" stroke-width="2"/>
+							</svg></span>
+						</button>	
 						</div>
 					</div>
 						<div class="card 4">
@@ -479,9 +513,11 @@
 						</div>
 						<div class="card__text">
 							<h4>website design</h4>	
-							<span class="arrow btn_next_page"><svg width="32" height="21" viewBox="0 0 32 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.650758 10.5001L30.3493 10.5001M30.3493 10.5001L20.9643 1.11513M30.3493 10.5001L21.0525 19.7969" stroke-width="2"/>
-</svg></span>
+							<button class="acc_btn btn_next_page" aria-label="open project"  >
+								<span class="arrow btn_next_page"><svg width="32" height="21" viewBox="0 0 32 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M0.650758 10.5001L30.3493 10.5001M30.3493 10.5001L20.9643 1.11513M30.3493 10.5001L21.0525 19.7969" stroke-width="2"/>
+							</svg></span>
+						</button>	
 						</div>
 					</div>
 				</div>
@@ -538,8 +574,10 @@
 				</div>	
 			</div>
 		  </section>
+	</main>
+
 		  <!-- footer------------------------------------------------------------------------------------------- -->
-		   <!-- <footer > -->
+	 <footer >
 			<section class="footer section" id="contact">
 				<div class=" footer__CTA">
 					<h1>Let's Start Your Digital Journey Now!</h1>
@@ -586,11 +624,30 @@
 									</div>
 							</div>
 						</div>
-						<div class="social_media">
-							<span class="arrow"><i class="ri-twitter-x-fill"></i></i></span>
-							<span class="arrow"><i class="ri-facebook-box-fill"></i></span>
-							<span class="arrow"><i class="ri-instagram-fill"></i></i></span>
-							<span class="arrow"><i class="ri-whatsapp-fill"></i></i></span>
+						<div class="social_media_wrapper">
+							<ul class="social_media" aria-label="social media links">
+								
+								<li>
+									<a href="#"aria-label="twitter">
+										<span class="arrow"><i class="ri-twitter-x-fill"></i></i></span> 
+									</a>
+								</li>
+								<li>
+									<a href="#"aria-label="facebook">
+										<span class="arrow"><i class="ri-facebook-box-fill"></i></span> 
+									</a>
+								</li>
+								<li>
+									<a href="#"aria-label="instagram">
+										<span class="arrow"><i class="ri-instagram-fill"></i></i></span> 
+									</a>
+								</li>
+								<li>
+									<a href="#"aria-label="whatapp">
+										<span class="arrow"><i class="ri-whatsapp-fill"></i></i></span> 
+									</a>
+								</li>
+							</ul>
 						</div>
 					</div>
 					<div class="right">
@@ -614,11 +671,17 @@
 						</div>
 					</div>
 				</div>
-
 			</section>
-
-		   <!-- </footer> -->
-		</div>
+		</footer>
+		<div>
+			<button  aria-label="BACK TO TOP"  class="back_to_top">
+				<a  href="#" >
+					<span class="btt"><svg width="32" height="21" viewBox="0 0 32 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M0.650758 10.5001L30.3493 10.5001M30.3493 10.5001L20.9643 1.11513M30.3493 10.5001L21.0525 19.7969" stroke-width="2"/></svg></span>
+					</a>
+					
+				</button>
+			</div>
 		
 	</body>
 	<script

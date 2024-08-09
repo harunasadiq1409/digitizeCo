@@ -1,12 +1,27 @@
 // nav bar background activation //////////////////////////////////////////////////////////////////
 const header = document.querySelector("header");
+const footer = document.querySelector("footer");
 const heroSection = document.querySelector(".hero__contents");
 const btt = document.querySelector(".back_to_top");
+let main = document.querySelector("#main");
+let media = window.matchMedia("(width < 740px)");
 window.addEventListener("scroll", function () {
 	header.classList.toggle("active", this.scrollY > 150);
 	btt.classList.toggle("active", this.scrollY > 150);
 });
 
+// utility for hiding content on page for assistive technology reason
+function hideBodycontent(v) {
+	if (v) {
+		header.setAttribute("inert", "");
+		main.setAttribute("inert", "");
+		footer.setAttribute("inert", "");
+	} else {
+		header.removeAttribute("inert");
+		main.removeAttribute("inert");
+		footer.removeAttribute("inert");
+	}
+}
 //  nav link activate on scroll ////////////////////////////////////////////////////////////////////
 let links = document.querySelectorAll(".nav_link");
 let sections = document.querySelectorAll(".section");
@@ -50,11 +65,16 @@ let closeBtn = document.querySelector(".close");
 ctaBtnAll.forEach((btn) => {
 	btn.addEventListener("click", function () {
 		emailPage.classList.add("open");
+		emailPage.removeAttribute("inert");
+		emailPage.focus();
+		hideBodycontent(true);
 	});
 });
 
 closeBtn.addEventListener("click", function () {
 	emailPage.classList.remove("open");
+	emailPage.setAttribute("inert", "");
+	hideBodycontent(false);
 });
 
 // handle btn to next page /////////////////////////////////////////////////////////////////////////////
@@ -63,12 +83,17 @@ let pnf = document.querySelector(".page_not_found");
 btnToNextPage.forEach((btn) => {
 	btn.addEventListener("click", function () {
 		pnf.classList.add("active");
+		pnf.removeAttribute("inert");
+		pnf.focus();
+		hideBodycontent(true);
 	});
 });
 
 let back = document.querySelector(".back_btn");
 back.addEventListener("click", function () {
 	pnf.classList.remove("active");
+	pnf.setAttribute("inert", "");
+	hideBodycontent(false);
 });
 
 // hand form////////////////////////////////////////////////////////////////////////////////////
@@ -83,6 +108,10 @@ form.addEventListener("submit", function (e) {
 		h2.innerText = `thank you 🙏 ${names.value} for checking this website`;
 		pnf.classList.add("active");
 		emailPage.classList.remove("open");
+		pnf.removeAttribute("inert");
+		pnf.focus();
+		emailPage.setAttribute("inert", "");
+		hideBodycontent(false);
 	}
 });
 
@@ -93,23 +122,53 @@ let menuClose = document.querySelector(".close_btn");
 let menuContent = document.querySelector(".nav_links_container");
 let nav_links = document.querySelectorAll(".nav_item");
 
-menuClose.addEventListener("click", () => {
-	menuOpen.classList.add("active");
-	menuClose.classList.remove("active");
-	menuContent.classList.remove("active");
-});
-menuOpen.addEventListener("click", () => {
+function setUpTopNav(e) {
+	if (e.matches) {
+		menuContent.setAttribute("inert", "");
+		menuContent.style.transition = "none";
+	} else {
+		if (menuContent.classList.contains("active")) {
+			funcCloseMenu();
+		}
+		menuContent.removeAttribute("inert");
+	}
+}
+setUpTopNav(media);
+
+function funcOpenMenu() {
 	menuOpen.classList.remove("active");
 	menuClose.classList.add("active");
 	menuContent.classList.add("active");
-});
+	menuOpen.setAttribute("aria-expanded", "true");
+	main.setAttribute("inert", "");
+	menuContent.removeAttribute("inert");
+	menuClose.focus();
+	menuContent.removeAttribute("style");
+}
+function funcCloseMenu() {
+	menuOpen.classList.add("active");
+	menuClose.classList.remove("active");
+	menuContent.classList.remove("active");
+	menuOpen.setAttribute("aria-expanded", "false");
+	main.removeAttribute("inert");
+	menuContent.setAttribute("inert", "");
+	menuOpen.focus();
+	setTimeout(function () {
+		menuContent.style.transition = "none";
+	}, 300);
+}
+
+menuOpen.addEventListener("click", funcOpenMenu);
+menuClose.addEventListener("click", funcCloseMenu);
 
 nav_links.forEach((link) => {
 	link.addEventListener("click", function () {
 		if (menuContent.classList.contains("active")) {
-			menuOpen.classList.add("active");
-			menuClose.classList.remove("active");
-			menuContent.classList.remove("active");
+			funcCloseMenu();
 		}
 	});
+});
+
+media.addEventListener("change", function () {
+	setUpTopNav(media);
 });
