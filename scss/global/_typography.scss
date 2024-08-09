@@ -1,0 +1,59 @@
+@use "../util/font" as *;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--header_font);
+	font-weight: bold;
+}
+h1 {
+	// font-size: 72px;
+	font-size: clamp(2.625rem, 2.778vw + 2.069rem, 4.5rem);
+
+	line-height: 100%;
+}
+h2 {
+	font-size: clamp(2rem, 1.204vw + 1.759rem, 2.813rem);
+
+	line-height: 120%;
+	// font-size: 45px;
+}
+h3 {
+	font-weight: normal;
+	// font-size: 32px;
+	font-size: clamp(1.625rem, 0.556vw + 1.514rem, 2rem);
+}
+h4 {
+	// font-size: 26px;
+	font-size: clamp(1.5rem, 0.185vw + 1.463rem, 1.625rem);
+}
+h5 {
+	// font-size: 20px;
+	font-size: 1.4rem;
+}
+h6 {
+	//font-size: 18px;
+	font-size: 1.1rem;
+}
+
+a {
+	text-decoration: none;
+}
+.body_text_large {
+	font-family: var(--text_font);
+	font-size: 1rem;
+	opacity: 0.8;
+}
+.body_text_small {
+	font-family: var(--text_font);
+	font-size: 13px;
+	opacity: 0.8;
+}
+
+.section_title {
+	color: var(--primary_color);
+	width: bold;
+	margin-bottom: calc(var(--gap_size) / 2);
+}

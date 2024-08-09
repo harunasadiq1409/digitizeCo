@@ -1,0 +1,78 @@
+.btn {
+	font-size: 1rem;
+	background-color: var(--primary_color);
+	font-family: var(--text_font);
+
+	border: none;
+	color: var(--color_2);
+	padding: 12px;
+	border-radius: 4px;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	transition: 0.3s ease;
+	cursor: pointer;
+	text-wrap: nowrap;
+}
+
+.btn:hover {
+	background-color: #52487b;
+}
+.btn_outline {
+	font-size: 1rem;
+	font-family: var(--text_font);
+	background: none;
+	border: none;
+	border-bottom: 1px solid var(--color_2);
+	color: var(--color_2);
+	padding: 12px;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	transition: 0.3s ease;
+	cursor: pointer;
+	text-wrap: nowrap;
+}
+
+.arrow {
+	width: 40px;
+	height: 40px;
+	padding: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: white;
+	border-radius: 50%;
+	stroke: var(--primary_color);
+	cursor: pointer;
+	transition: 0.3s ease;
+}
+
+.btn_bottom {
+	font-size: 1rem;
+	background: var(--color_2);
+	color: var(--primary_color);
+	cursor: pointer;
+	text-wrap: nowrap;
+
+	.arrow {
+		background-color: var(--primary_color);
+		color: var(--color_2);
+		transition: 0.3s ease;
+		cursor: pointer;
+
+		:hover {
+			background-color: rgb(183, 179, 255);
+		}
+	}
+}
+
+.acc_btn {
+	background: transparent;
+	border: none;
+	// border-radius: ;
+}
+
+.arrow:hover {
+	background-color: rgb(183, 179, 255);
+}

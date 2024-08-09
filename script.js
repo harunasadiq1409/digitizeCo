@@ -84,8 +84,8 @@ btnToNextPage.forEach((btn) => {
 	btn.addEventListener("click", function () {
 		pnf.classList.add("active");
 		pnf.removeAttribute("inert");
-		pnf.focus();
 		hideBodycontent(true);
+		pnf.focus();
 	});
 });
 
@@ -100,6 +100,7 @@ back.addEventListener("click", function () {
 
 let form = document.querySelector("form");
 let names = document.querySelector(".name");
+let email = document.querySelector(".email");
 let h2 = document.querySelector(".h2m");
 
 form.addEventListener("submit", function (e) {
