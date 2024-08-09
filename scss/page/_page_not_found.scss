@@ -1,0 +1,27 @@
+.page_not_found {
+	position: fixed;
+	width: 100%;
+	transform: translate(100%);
+	overflow: hidden;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	background-color: var(--color_2);
+	color: var(--primary_color);
+	gap: var(--gap_size_2);
+	z-index: 10100;
+	transition: 0.3s ease-in-out;
+	padding: var(--section_padding);
+	text-align: center;
+	button {
+		border: 5px solid white;
+		:focus {
+			outline: 1px solid var(--primary_color);
+		}
+	}
+}
+.page_not_found.active {
+	transform: translateX(0%);
+}
