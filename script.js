@@ -8,10 +8,14 @@ let media = window.matchMedia("(width < 740px)");
 window.addEventListener("scroll", function () {
 	header.classList.toggle("active", this.scrollY > 150);
 	btt.classList.toggle("active", this.scrollY > 150);
+
+	setTimeout(() => {
+		btt.classList.remove("active");
+	}, 10000);
 });
 
 // utility for hiding content on page for assistive technology reason
-function hideBodycontent(v) {
+function hideBodyContent(v) {
 	if (v) {
 		header.setAttribute("inert", "");
 		main.setAttribute("inert", "");
@@ -86,14 +90,14 @@ ctaBtnAll.forEach((btn) => {
 		emailPage.classList.add("open");
 		emailPage.removeAttribute("inert");
 		emailPage.focus();
-		hideBodycontent(true);
+		hideBodyContent(true);
 	});
 });
 
 closeBtn.addEventListener("click", function () {
 	emailPage.classList.remove("open");
 	emailPage.setAttribute("inert", "");
-	hideBodycontent(false);
+	hideBodyContent(false);
 });
 
 // handle btn to next page /////////////////////////////////////////////////////////////////////////////
@@ -103,7 +107,7 @@ btnToNextPage.forEach((btn) => {
 	btn.addEventListener("click", function () {
 		pnf.classList.add("active");
 		pnf.removeAttribute("inert");
-		hideBodycontent(true);
+		hideBodyContent(true);
 		pnf.focus();
 	});
 });
@@ -112,7 +116,7 @@ let back = document.querySelector(".back_btn");
 back.addEventListener("click", function () {
 	pnf.classList.remove("active");
 	pnf.setAttribute("inert", "");
-	hideBodycontent(false);
+	hideBodyContent(false);
 });
 
 // hand form////////////////////////////////////////////////////////////////////////////////////
@@ -131,7 +135,7 @@ form.addEventListener("submit", function (e) {
 		pnf.removeAttribute("inert");
 		pnf.focus();
 		emailPage.setAttribute("inert", "");
-		hideBodycontent(false);
+		hideBodyContent(false);
 	}
 });
 
