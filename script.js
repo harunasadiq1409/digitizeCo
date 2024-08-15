@@ -46,12 +46,31 @@ let serviceItems = document.querySelectorAll(".services__items .item");
 
 serviceItems.forEach((item) => {
 	item.addEventListener("click", function () {
+		let itemHeaderButton = item.children[0].children[1];
+		let itemContent = item.children[1];
+		let windowTop = window.scrollY;
+		let itemContentTop = item.offsetTop;
 		if (item.classList.contains("active")) {
 			item.classList.remove("active");
+			itemHeaderButton.setAttribute("aria-expanded", "false");
+			itemContent.setAttribute("inert", "");
 		} else {
-			serviceItems.forEach((remItem) => {
-				remItem.classList.remove("active");
+			serviceItems.forEach((removeItem) => {
+				let removeItemHeaderButton = removeItem.children[0].children[1];
+				let removeItemContent = removeItem.children[1];
+				removeItem.classList.remove("active");
+				removeItemHeaderButton.setAttribute("aria-expanded", "false");
+				removeItemContent.setAttribute("inert", "");
+
 				item.classList.add("active");
+				itemHeaderButton.setAttribute("aria-expanded", "true");
+				itemContent.removeAttribute("inert");
+				setTimeout(() => {
+					window.scrollTo(0, item.offsetTop - 100);
+				}, 500);
+
+				// console.log(windowTop);
+				// console.log(itemContentTop);
 			});
 		}
 	});
