@@ -89,7 +89,7 @@ ctaBtnAll.forEach((btn) => {
 	btn.addEventListener("click", function () {
 		emailPage.classList.add("open");
 		emailPage.removeAttribute("inert");
-		emailPage.focus();
+		emailPage.children[1].children[0].focus();
 		hideBodyContent(true);
 	});
 });
@@ -108,7 +108,7 @@ btnToNextPage.forEach((btn) => {
 		pnf.classList.add("active");
 		pnf.removeAttribute("inert");
 		hideBodyContent(true);
-		pnf.focus();
+		pnf.children[2].focus();
 	});
 });
 

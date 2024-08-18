@@ -1,0 +1,21 @@
+.skip-to-services {
+	position: absolute;
+	z-index: 1;
+	translate: 0% -100%;
+	transition: translate 0.3s ease-in-out;
+	opacity: 0;
+	a {
+		padding: 20px 25px;
+		display: inline-block;
+		border-radius: 8px;
+		background-color: white;
+		color: black;
+		text-decoration: none;
+		margin-top: 20px;
+		margin-left: 20px;
+	}
+	&:has(a:focus) {
+		translate: 0% 0%;
+		opacity: 1;
+	}
+}
