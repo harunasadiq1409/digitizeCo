@@ -38,6 +38,13 @@ window.addEventListener("scroll", function () {
 		let scrollHeight = window.scrollY;
 		if (scrollHeight >= sectionOffSetTop && scrollHeight < sectionOffSetTop + sectionHeight) {
 			this.document.querySelector(`.nav_links a[href*=${sectionId}]`).classList.add("active");
+			if (sectionId == "home") {
+				heroSection.style.position = "sticky";
+				console.log("hone");
+			} else {
+				heroSection.style.position = "relative";
+				console.log("h");
+			}
 		} else {
 			this.document.querySelector(`.nav_links a[href*=${sectionId}]`).classList.remove("active");
 		}

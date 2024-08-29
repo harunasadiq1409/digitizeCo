@@ -69,7 +69,11 @@ header.active {
 	background: var(--primary_color);
 	box-shadow: 2px 2px 12px -5px var(--color_1);
 }
-
+.white-bg {
+	background-color: var(--color_2);
+	position: relative;
+	z-index: 1;
+}
 .hero {
 	background-image: var(--gradient_color);
 	display: flex;
@@ -79,7 +83,9 @@ header.active {
 	padding-block: 0;
 	padding-top: 11rem;
 	height: min(101vh, 650px);
-	position: relative;
+	z-index: -1;
+	position: sticky;
+	top: 0;
 
 	&__contents {
 		width: 100%;
