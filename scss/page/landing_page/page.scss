@@ -83,9 +83,7 @@ header.active {
 	padding-block: 0;
 	padding-top: 11rem;
 	height: min(101vh, 650px);
-	z-index: -1;
-	position: sticky;
-	top: 0;
+	position: relative;
 
 	&__contents {
 		width: 100%;
@@ -158,6 +156,7 @@ header.active {
 		}
 		button {
 			border: 5px solid white;
+			border-radius: 4px;
 			:focus {
 				outline: 1px solid var(--primary_color);
 			}

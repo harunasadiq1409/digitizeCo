@@ -6,7 +6,7 @@ const btt = document.querySelector(".back_to_top");
 let main = document.querySelector("#main");
 let media = window.matchMedia("(width < 740px)");
 window.addEventListener("scroll", function () {
-	header.classList.toggle("active", this.scrollY > 150);
+	header.classList.toggle("active", this.scrollY > 50);
 	btt.classList.toggle("active", this.scrollY > 150);
 
 	setTimeout(() => {
@@ -31,20 +31,14 @@ let links = document.querySelectorAll(".nav_link");
 let sections = document.querySelectorAll(".section");
 
 window.addEventListener("scroll", function () {
+	let scrollHeight = window.scrollY;
 	sections.forEach((section) => {
 		let sectionOffSetTop = section.offsetTop - 300;
 		let sectionHeight = section.offsetHeight;
 		let sectionId = section.getAttribute("id");
-		let scrollHeight = window.scrollY;
+
 		if (scrollHeight >= sectionOffSetTop && scrollHeight < sectionOffSetTop + sectionHeight) {
 			this.document.querySelector(`.nav_links a[href*=${sectionId}]`).classList.add("active");
-			if (sectionId == "home") {
-				heroSection.style.position = "sticky";
-				console.log("hone");
-			} else {
-				heroSection.style.position = "relative";
-				console.log("h");
-			}
 		} else {
 			this.document.querySelector(`.nav_links a[href*=${sectionId}]`).classList.remove("active");
 		}
@@ -79,9 +73,6 @@ serviceItems.forEach((item) => {
 				setTimeout(() => {
 					window.scrollTo(0, item.offsetTop - 100);
 				}, 500);
-
-				// console.log(windowTop);
-				// console.log(itemContentTop);
 			});
 		}
 	});
